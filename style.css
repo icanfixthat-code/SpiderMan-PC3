@@ -1,0 +1,33 @@
+/* Estilos generales */
+html { scroll-behavior: smooth; }
+body { font-family: Arial, sans-serif; background: #f5f6fa; color: #202433; }
+section { scroll-margin-top: 65px; }
+.portada { padding: 95px 15px 80px; background: linear-gradient(135deg, #a60919, #e52b37 55%, #112c63); }
+.simbolo { font-size: 65px; }
+.titulo { font-size: clamp(40px, 8vw, 80px); font-weight: 900; letter-spacing: 3px; animation: entrada 1.3s ease-out 1; }
+/* Animación personalizada */
+@keyframes entrada { from { opacity: 0; transform: translateY(45px); } to { opacity: 1; transform: translateY(0); } }
+/* Loader que gira continuamente */
+.cargador { width: 34px; height: 34px; border: 5px solid #ffffff70; border-top-color: white; border-radius: 50%; margin: 28px auto 0; animation: girar 1s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+/* Tarjetas con transformaciones 2D */
+.tarjeta { min-height: 240px; padding: 30px; border-radius: 16px; color: white; background: #132b58; box-shadow: 0 8px 20px #00000020; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.tarjeta h3 { margin: 15px 0; }
+.tarjeta p { min-height: 65px; }
+.tarjeta small { color: #ffb8bc; }
+.numero { font-size: 32px; font-weight: bold; color: #ff5966; }
+.tarjeta-rotar:hover { transform: rotate(4deg); }
+.tarjeta-escalar:hover { transform: scale(1.06); }
+.tarjeta-mover:hover { transform: translateY(-16px); }
+.tarjeta:hover { box-shadow: 0 16px 28px #00000035; }
+/* Tarjeta que gira en 3D */
+.seccion-3d { background: #e5eaf3; }
+.escena-3d { width: min(100%, 310px); height: 230px; perspective: 1000px; }
+.tarjeta-3d { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.8s ease; }
+.escena-3d:hover .tarjeta-3d, .escena-3d:focus-within .tarjeta-3d { transform: rotateX(8deg) rotateY(180deg); }
+.cara { position: absolute; inset: 0; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; backface-visibility: hidden; padding: 15px; }
+.cara span { font-size: 55px; }
+.frente { background: #bd1429; }
+.reverso { background: #132b58; transform: rotateY(180deg) rotateX(8deg); }
+@media (max-width: 576px) { .portada { padding: 70px 12px; } .tarjeta { min-height: auto; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
